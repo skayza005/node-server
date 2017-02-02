@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="viewport" content="user-scalable=no" />
+
+        <script src="jquery-1.12.0.min.js"></script>
+        <script src="socket.io-1.4.5.js"></script>
+        <script src="team.js"></script>
+        
+    </head>
+    <body>
+	<script>
+        $(document).ready(function () {
+
+            ////////////////////////////
+            var id_team = _data[0].id;
+            var name_team = _data[0].name;
+
+            ////////////////////////////
+            
+            
+		    var socket = io();
+		    socket.emit('tablet', {
+		        username: name_team,
+		        type:'0',
+		        message: '123' 
+		    });
+		    socket.on('tablet', function (data) {
+		        console.log(data);
+		    });
+        });
+        function submit_ans() {
+            socket.emit('tablet', {
+                username: name_team,
+                type: '1', // success
+                message: '20.2' // time
+            });
+        }
+	  </script>
+     
+	  
+    </body>
+</html>

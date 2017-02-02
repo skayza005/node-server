@@ -1,0 +1,87 @@
+﻿<!DOCTYPE>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="./boostrap/css/bootstrap.css" />
+	<link href="/boostrap/css/bootstrap.css"/>
+	<script type="text/javascript" src="/jquery.min.js"></script>
+	<script type="text/javascript" src="/jquery.event.drag-2.0.js"></script>
+	<script src="/socket.io-1.4.5.js"></script>
+
+  <script>
+		var team_name =  <%- JSON.stringify(team_name) %>;
+		console.log(team_name) ;
+		var team_img = <%- JSON.stringify(team_name) %> ;
+		var team_status = <%- JSON.stringify(status) %> ;
+		var team_score = <%- JSON.stringify(score) %>;
+		var team_num = <%= team_num %> ;
+	</script>
+	<script type="text/javascript" src="/controller_last.js"></script>
+
+
+
+	<title>controller</title>
+</head>
+<body>
+
+		<div class="container-fluid">
+				<div class="row well">
+						<div class="col-xs-1">
+							<div class="btn btn-lg btn-primary hidden" id="reset_time">Reset</div>
+						</div>
+						<div class="col-xs-1">
+							<div class="btn btn-lg btn-primary" id="start_time">1.start</div>
+						</div>
+						<div class="col-xs-1">
+							<div class="btn btn-lg btn-primary hidden" id="stop_time">stop</div>
+						</div>
+						<div class="col-xs-3">
+							<div class="btn btn-lg btn-primary" id="sent_result">2.sentResult to monitor</div>
+						</div>
+						<div class="col-xs-3">
+							<div class="btn btn-lg btn-primary" id="update_score">3.updateScoreboard</div>
+						</div>
+						<div class="col-xs-3">
+							<div class="btn btn-lg btn-primary" id="reset_new">reset->Next</div>
+						</div>
+						<div class="col-xs-2">
+							<div class="btn btn-lg btn-primary hidden" id="update_status">updatestatus</div>
+						</div>
+			</div>
+
+			<div class="center-block row col-lg-6">
+				<table class="table table-bordered">
+						<tr>
+								<th>id</th>
+								<th>name</th>
+								<th>score</th>
+
+								<th>time</th>
+								<th>newscore</th>
+								<th>status</th>
+						</tr>
+						<% for(var i=1 ; i< 8 ; i++){ %>
+							<tr>
+								<td><%= i %></td>
+								<td id="name<%= i %>"></td>
+								<td id="score<%= i %>"></td>
+
+								<td id="time<%= i %>"></td>
+								<td id="newscore<%= i %>"></td>
+								<td id="status<%= i %>">
+									<button class="btn btn-sm btn-primary" id="status_<%= i %>" onclick="updateStatus(<%= i %>,1)">1</button>
+									<button class="btn btn-sm bg-default" id="status_<%= i %>" onclick="updateStatus(<%= i %>,0)">0</button>
+								</td>
+							</tr>
+						<% } %>
+
+
+				</table>
+			</div>
+
+		</div>
+
+
+</body>

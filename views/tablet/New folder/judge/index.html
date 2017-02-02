@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="monitorApp">
+  <head>
+
+    <link rel="stylesheet" href="node_modules\angular-material\angular-material.min.css" />
+    <script type="text/javascript" src="node_modules\angular\angular.min.js"></script>
+    <script type="text/javascript" src="node_modules\angular-animate\angular-animate.js"></script>
+    <script type="text/javascript" src="node_modules\angular-aria\angular-aria.min.js"></script>
+    <script type="text/javascript" src="node_modules\angular-messages\angular-messages.min.js"></script>
+    <script type="text/javascript" src="node_modules\angular-material\angular-material.min.js"></script>
+    <script type="text/javascript" src="app/judge.js"></script>
+    <style>
+      .image {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body ng-controller="AppCtrl as app">
+    <div layout="row" layout-wrap>
+      <div flex="33" layout="column" layout-align="center center">
+        <div>
+          <md-button class="md-raised" style="font-size: 300%; padding: 10px" ng-click="app.sending = 'loading...'; app.send();">Send</md-button>
+          {{app.sending}}
+        </div>
+        <div>
+          <md-button class="md-raised" style="font-size: 200%; padding: 10px" ng-click="app.reseting = 'loading...'; app.resetBackgorund();">Reset<br />Background</md-button>
+          {{app.reseting}}
+        </div>
+      </div>
+      <div ng-repeat="image in app.images" flex="33">
+        <div layout="row">
+          <b>{{image.teamName}}</b>
+          <md-button flex="40" ng-click="image.correct = true; image.style['background-color'] = '#C5E0B4';" class="md-raised md-primary">Correct</md-button>
+          <md-button flex="40" ng-click="image.correct = false; image.style['background-color'] = '#F8CBAD'" class="md-raised md-warn">Wrong</md-button>
+        </div>
+        <img class="image" ng-style="image.style" ng-src="{{image.data}}" alt="blank"/>
+      </div>
+    </div>
+  </body>
+</html>

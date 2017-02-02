@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+  background-color: black;
+}
+
+.bigFooter {
+  height: 100vh;
+}
+
+.bigFooter md-grid-tile-footer {
+  background: rgba(0, 0, 0, 0);
+  height: 60px;
+}
+
+.bigFooter md-grid-tile-footer figcaption {
+  margin-left: 10px;
+}
+
+.bigFooter md-grid-tile-footer figcaption h2 {
+  color: black;
+}

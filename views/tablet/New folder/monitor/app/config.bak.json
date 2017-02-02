@@ -1,0 +1,12 @@
+{
+  "tiles":[
+      {"hash":"123123", "team":"ZAW"},
+      {"hash":"2", "team":"BLE"},
+      {"hash":"3", "team":"CHI"},
+      {"hash":"4", "team":"BBB"},
+      {"hash":"5", "team":"JUK"},
+      {"hash":"6", "team":"BAS"},
+      {"hash":"7", "team":"TUN"},
+      {"hash":"8", "team":"ORZ"}
+  ]
+}

@@ -1,0 +1,55 @@
+ <style>
+ html, body {
+        margin-left: 2px;
+        margin-top: 2px;
+        position: fixed;
+        overflow: hidden;
+    }
+
+    .button-submit,
+    .button-clear,
+    .button-undo {
+        font-size: 125%;
+    }
+
+    .button-clear {
+        width: 100px;
+    }
+
+    .button-submit,
+    .button-undo {
+        width: 300px;
+    }
+
+    .button-submit,
+    .button-clear {
+        margin-left:10px;
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-submit {
+        background: rgb(28, 184, 65); /* this is a green */
+    }
+
+    .button-clear {
+        background: rgb(202, 60, 60); /* this is a maroon */
+    }
+    .button-time {
+        background: #BBDEFB; /* this is a maroon */
+        width:200px;
+        height:50px;
+    }
+
+    #circle {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 5px;
+        top: 5px;
+        background-color: #BBDEFB;
+        display: none;
+    }
+
+    </style>

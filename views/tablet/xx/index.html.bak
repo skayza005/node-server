@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="viewport" content="user-scalable=no" />
+
+        <script src="js/libs/jquery-1.12.0.min.js"></script>
+        <script src="js/libs/require.js"></script>
+		
+		
+        <script src="js/build/application.min.js"></script>
+        <link rel="stylesheet" href="pure-min.css" />
+		<script src="socket.io-1.4.5.js"></script>
+        <title>SIMPIC 2016</title>
+        <style scoped>
+          html, body {
+              margin-left: 2px;
+              margin-top: 2px;
+              position: fixed;
+              overflow: hidden;
+          }
+          .button-submit,
+          .button-clear,
+          .button-undo {
+            font-size: 125%;
+          }
+          .button-clear {
+            width: 100px;
+
+          }
+          .button-submit,
+          .button-undo {
+            width: 300px;
+          }
+          .button-submit,
+          .button-clear {
+              color: white;
+              border-radius: 4px;
+              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+          }
+          .button-submit {
+              background: rgb(28, 184, 65); /* this is a green */
+          }
+          .button-clear {
+              background: rgb(202, 60, 60); /* this is a maroon */
+          }
+          #circle {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: 5px;
+            top: 5px;
+            background-color: #BBDEFB;
+            display: none;
+          }
+        </style>
+    </head>
+    <body>
+	<script>
+		var socket = io();
+		socket.emit('chat', {
+                    username: 'as', 
+                    message: 'wwwwww'
+            	});
+	  </script>
+      <div id="tools" style="padding-bottom: 2px">
+        <button class="button-clear pure-button" id="clear">Clear</button>
+        <button class="button-undo pure-button" id="undo">Undo</button>
+        <button class="button-submit pure-button" id="submit">Submit</button>
+        <tag style="padding-left: 10px">Status: </tag><tag id="status"></tag>
+        <div id="circle">
+        </div>
+      </div>
+      <div id="canvas" style="float: left; border: 1px solid grey;">
+          <canvas id="drawing-canvas"></canvas>
+      </div>
+	  
+    </body>
+</html>

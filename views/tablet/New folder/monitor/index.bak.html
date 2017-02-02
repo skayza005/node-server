@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="monitorApp">
+  <head>
+    <link rel="stylesheet" href="libs/angular-material.min.css" />
+    <link rel="stylesheet" href="libs/angular-material.layouts.min.css" />
+    <link rel="stylesheet" href="css/monitor.css" />
+
+    <script type="text/javascript" src="libs/angular.min.js"></script>
+    <script type="text/javascript" src="libs/angular-animate.min.js"></script>
+    <script type="text/javascript" src="libs/angular-aria.min.js"></script>
+    <script type="text/javascript" src="libs/angular-material.min.js"></script>
+    <script type="text/javascript" src="app/monitor.js"></script>
+
+    <style>
+      .img {
+        background-position: center;
+        background-color: white;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+
+  <body ng-controller="MonitorCtrl as monitor">
+    <!-- <div>{{monitor.tiles | json}}</div>
+    <div>{{monitor.imgStyles | json}}</div> -->
+    <md-grid-list md-cols="6" md-row-height="fit" md-gutter="1px" class="bigFooter">
+      <md-grid-tile></md-grid-tile>
+      <md-grid-tile ng-repeat="tile in monitor.tiles" class="img" ng-style="monitor.imgStyles[$index]" md-colspan="2" ng-if="$index < 2">
+        <md-grid-tile-footer>
+          <h2>
+            {{tile.teamName}}
+          </h2>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+      <md-grid-tile></md-grid-tile>
+      <md-grid-tile ng-repeat="tile in monitor.tiles" class="img" ng-style="monitor.imgStyles[$index]" md-colspan="2" ng-if="$index >= 2">
+        <md-grid-tile-footer>
+          <h2>
+            {{tile.teamName}}
+          </h2>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+    </md-grid-list>
+
+  </body>
+</html>

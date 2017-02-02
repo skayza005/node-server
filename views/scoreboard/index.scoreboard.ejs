@@ -1,0 +1,109 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="/jquery.min.js"></script>
+	<script type="text/javascript" src="/jquery.event.drag-2.0.js"></script>
+	<script src="/socket.io-1.4.5.js"></script>
+	<link rel="stylesheet" href="/boostrap/css/bootstrap.css" />
+
+	<%  var wth_box_ejs = 1280; %>
+	<%  var hth_window = 767; %>
+	<%	var hth_box_ejs = 3*wth_box_ejs/16;  %>
+	<style>
+
+		.col_box{
+ 			display:inline-block;
+			margin-left:<%= wth_box_ejs*1.5/100 %>px;
+			margin-right:<%= wth_box_ejs*1.5/100 %>px;
+			border-radius: 25px;
+			border: 2px solid;
+			height: <%= hth_box_ejs %>px;
+			z-index:1;
+		}
+		.logo{
+			clear:both;
+			height:  <%= hth_box_ejs*0.3 %>px ;
+			margin-top:5px ;
+		}
+		img{
+			max-height: 100%;
+			margin:auto;
+		}
+		.name{
+			height:  <%= hth_box_ejs*0.2 %>px ;
+			text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em darkblue;
+			color: black;
+		}
+		.bl-score{
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: <%= hth_box_ejs*0.05 %>px;
+			margin-bottom: <%= hth_box_ejs*0.1 %>px;
+			height:  <%= hth_box_ejs*0.35 %>px ;
+			padding: 19px;
+			background-color: #f5f5f5;
+			border: 1px solid #e3e3e3;
+			border-radius: 25px;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+		}
+		.score{
+			text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em darkblue;
+			color: black;
+
+
+		}
+
+	</style>
+
+<title>scoreboard</title>
+	<script>
+
+
+			var wth = <%= wth_box_ejs%> ;
+			var hth = <%= hth_box_ejs%> ;/// ไว้ใช้ตอนกำหนด row นะจ้ะ
+
+			var team_name =  <%- JSON.stringify(team_name) %>;
+			var team_status =  <%= JSON.stringify(status) %>;
+
+	    var team_img = <%- JSON.stringify(team_name) %> ;
+	    var team_score = <%- JSON.stringify(score) %>;
+	    var team_num = <%= team_num %> ;
+			//status.map(String);
+			//team_score.map(String);
+			console.log(team_name) ;
+			console.log(team_score) ;
+			console.log(team_num) ;
+			//console.log('status : '+status) ;
+	    var wth_box = wth / 7;
+	    // wth , hth ;
+
+
+	</script>
+
+  <script type="text/javascript" src="/scoreboard.js"  ></script>
+
+
+
+    </head>
+<body>
+		<div class="container-fluid">
+
+				<div class="row bg-danger" style="z-index:0;height:<%= hth_box_ejs %>px ;margin-top:<%= hth_window-hth_box_ejs %>px">
+					<% for(var i=1 ; i<=7 ; i++){%>
+							<div class ="col_box bg-success" id="box_<%= i %>" >
+								<div class="row logo " ><img  class="img-responsive" id="logo_<%= i %>"></div>
+								<div class="row name text-center"><h3 id="name_<%= i %>"></h3></div>
+								<div class="row bl-score text-center" id="bl_score_<%= i %>">
+										<h3 class="score" id="score_<%= i %>">0</h3>
+								</div>
+							</div>
+					<% }%>
+				</div>
+
+		</div>
+
+
+
+
+</body>
